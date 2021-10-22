@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>DB登録</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+	<link th:href="@{/css/common.css}" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+	<h1>DB登録（顧客名簿:CUSTOMER）</h1>
+	<div id="access">
+		<form method="post" action="register">
+			<span class="colorr-red">顧客コード</span><input type="text" name="c_num" maxlength="4" required="required">
+			<span class="colorr-red">顧客名</span><input type="text" name="c_name" required="required">
+			<span>住所</span><input type="text" name="address">
+			
+			<div id="insert">
+				<input type="submit" class="btn btn-outline-success" value="登録">
+			</div>
+				
+		</form>
+		
+
+	</div>
+</body>
+</html>

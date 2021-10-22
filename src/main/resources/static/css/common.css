@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+
+#access{
+	margin-left: auto;
+    margin-right: auto;	
+    width: 300px;
+}
+
+form{
+	height:50px;
+}
+
+span{
+	width: 300px;
+}
+
+.colorr-red{
+	color: red;
+}
+
+input[type="text"]{
+	width: 300px;
+}
+
+#insert{
+	margin-top:30px;
+	text-align:center;
+}
