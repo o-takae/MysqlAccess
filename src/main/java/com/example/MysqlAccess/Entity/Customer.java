@@ -50,10 +50,12 @@ public class Customer {
 	public void setAll(  String c_cd
 						,String c_name
 						,String address
+						,String tel
 						) {
 		this.c_cd = c_cd;
 		this.c_name = c_name;
 		this.address = address;
+		this.tel = tel;
 	}
 
 }

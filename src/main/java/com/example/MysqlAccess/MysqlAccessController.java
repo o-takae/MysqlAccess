@@ -49,10 +49,11 @@ public class MysqlAccessController {
 	@PostMapping(path="/register")
 	public @ResponseBody String addNewCustomer(	  @RequestParam String c_cd 
 										, @RequestParam String c_name
-										, @RequestParam String address) {
+										, @RequestParam String address
+										, @RequestParam String tel) {
 	
 		Customer customerAddData = new Customer();
-		customerAddData.setAll(c_cd,c_name,address);
+		customerAddData.setAll(c_cd,c_name,address,tel);
 	
 		
 		customerRepository.save(customerAddData);
