@@ -1,5 +1,6 @@
 package com.example.MysqlAccess;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,14 +51,43 @@ public class MysqlAccessController {
 	public @ResponseBody String addNewCustomer(	  @RequestParam String c_cd 
 										, @RequestParam String c_name
 										, @RequestParam String address
-										, @RequestParam String tel) {
+										, @RequestParam String tel
+										) {
 	
 		Customer customerAddData = new Customer();
-		customerAddData.setAll(c_cd,c_name,address,tel);
-	
 		
+		// customerデータのインスタンスのフィールドに値をセットする 
+		
+		// ①入力フォーム値(リクエストパラメタ)をまとめてセット
+		customerAddData.setAll(c_cd, c_name, address, tel);
+		
+		/*
+        customerAddData.setAll(c_cd, c_name, address, tel);
+        // と
+        customerAddData.setC_cd(c_cd);
+        customerAddData.setC_name(c_name);
+        customerAddData.setAddress(address);
+        customerAddData.setTel(tel);
+        // は同じ処理の意味を持ちます
+
+       */
+		
+		// ②自動設定値をセット
+		Timestamp timestamp_update = new Timestamp(System.currentTimeMillis());
+		customerAddData.setUpdateDate(timestamp_update);
+		
+		Timestamp timestamp_create = new Timestamp(System.currentTimeMillis());
+		customerAddData.setCreateDate(timestamp_create);
+		
+        // ③固定値値をセット
+		customerAddData.setUpdateUser("springuser");
+		
+		customerAddData.setCreateUser("springuser");
+	
+		// customerデータのインスタンスをDB登録
 		customerRepository.save(customerAddData);
 		
 		return "登録しました";
 	}
+	
 }
